@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: prod-app
+
+spec:
+
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: prod-app
+
+  template:
+
+    metadata:
+      labels:
+        app: prod-app
+
+    spec:
+
+      containers:
+
+      - name: app
+
+        image: your-dockerhub-user/jenkins-cicd-project:v1
+
+        ports:
+        - containerPort: 80
